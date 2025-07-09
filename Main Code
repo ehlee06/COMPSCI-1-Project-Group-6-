@@ -1,31 +1,62 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    int shirtCount = 0;
 
+    // Shirt counts
+    int shirtCount = 0;
     cout << "How many shirts will you be purchasing today?" << endl;
     cin >> shirtCount;
-
     while (!cin) {
-        cout << "Please input a valid number." << endl;
-        cin.clear();               // Clear error flag
-        cin.ignore(1000, '\n');    // Discard invalid input
-        cin >> shirtCount;         // Prompt again
+        cout << "Please input a valid number. For more help, call us." << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cin >> shirtCount;
     }
-
     if (shirtCount > 300) {
         cout << "Understood! Due to the size of the order, we have to ask that you please call us for a quote." << endl;
         return 0;
-    }
-    else if (shirtCount >= 12 && shirtCount <= 300) {
+    } else if (shirtCount >= 12 && shirtCount <= 299) {
         cout << "Understood. Please continue with more information." << endl;
-    }
-    else {
+    } else {
         cout << "Thank you for visiting the site. Unfortunately a purchase of less than 12 shirts is not allowed. Please let us know if you have any more needs!" << endl;
         return 0;
     }
 
+    // Shirt sizes
+    string shirtSize;
+    cin.ignore();
+    cout << "What size shirts are needed? Input S for small, M for medium, L for large, and X for extra large." << endl;
+    getline(cin, shirtSize);
+    while (shirtSize != "S" && shirtSize != "M" && shirtSize != "L" && shirtSize != "X") {
+        cout << "Please input a valid shirt size (S, M, L, X). For more help, call us." << endl;
+        getline(cin, shirtSize);
+    }
+    cout << "Understood! Please continue with more information." << endl;
+
+    // Image count per shirt
+    int imageCount = 0;
+    cout << "How many image locations do you want on each shirt?" << endl;
+    cin >> imageCount;
+    while (!cin || imageCount > 2 || imageCount < 0) {
+        cout << "Please input a valid number. For more help, call us." << endl;
+        cin.clear();
+        cin >> imageCount;
+    }
+    if (imageCount == 0 || imageCount == 1 || imageCount == 2) {
+        cout << "Understood. Please continue with more information." << endl;
+    }
+
+    // Color count for image
 
     return 0;
-}
+    }
+
+
+
+
+
+
+
+
