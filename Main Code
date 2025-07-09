@@ -3,8 +3,6 @@
 using namespace std;
 
 int main() {
-
-    // Shirt counts
     int shirtCount = 0;
     cout << "How many shirts will you be purchasing today?" << endl;
     cin >> shirtCount;
@@ -24,7 +22,6 @@ int main() {
         return 0;
     }
 
-    // Shirt sizes
     string shirtSize;
     cin.ignore();
     cout << "What size shirts are needed? (S for small, M for medium, L for large, X for extra large, 2X for XXL, 3X for XXXL, 4X for XXXXL, and 5X for XXXXXL. " << endl;
@@ -35,40 +32,34 @@ int main() {
     }
     cout << "Understood! Please continue with more information." << endl;
 
-    // Image count per shirt
     int imageCount = 0;
     cout << "How many image locations do you want on each shirt?" << endl;
     cin >> imageCount;
     while (!cin || imageCount > 2 || imageCount < 0) {
         cout << "Please input a valid number. For more help, call us." << endl;
         cin.clear();
+        cin.ignore(1000, '\n');
         cin >> imageCount;
     }
     if (imageCount == 0 || imageCount == 1 || imageCount == 2) {
         cout << "Understood. Please continue with more information." << endl;
     }
 
-    // Color count for image
     int colorCount;
     cout << "How many colors do you want on each shirt? We can do up to 5. Black and white counts as 1." << endl;
     cin >> colorCount;
     while (!cin || colorCount > 5 || colorCount < 0) {
         cout << "Please input a valid number. For more help, call us." << endl;
         cin.clear();
+        cin.ignore(1000, '\n');
         cin >> colorCount;
     }
     if (colorCount > 0 && colorCount <= 5) {
         cout << "Super! Your quote is being calculated..." << endl;
     }
-    
-
 
     return 0;
-    }
-
-
-
-
+}
 
 
 
