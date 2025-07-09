@@ -27,9 +27,9 @@ int main() {
     // Shirt sizes
     string shirtSize;
     cin.ignore();
-    cout << "What size shirts are needed? Input S for small, M for medium, L for large, and X for extra large." << endl;
+    cout << "What size shirts are needed? (S for small, M for medium, L for large, X for extra large, 2X for XXL, 3X for XXXL, 4X for XXXXL, and 5X for XXXXXL. " << endl;
     getline(cin, shirtSize);
-    while (shirtSize != "S" && shirtSize != "M" && shirtSize != "L" && shirtSize != "X") {
+    while (shirtSize != "S" && shirtSize != "M" && shirtSize != "L" && shirtSize != "X" && shirtSize != "2X" && shirtSize != "3X" && shirtSize != "4X" && shirtSize != "5X") {
         cout << "Please input a valid shirt size (S, M, L, X). For more help, call us." << endl;
         getline(cin, shirtSize);
     }
@@ -49,6 +49,19 @@ int main() {
     }
 
     // Color count for image
+    int colorCount;
+    cout << "How many colors do you want on each shirt? We can do up to 5. Black and white counts as 1." << endl;
+    cin >> colorCount;
+    while (!cin || colorCount > 5 || colorCount < 0) {
+        cout << "Please input a valid number. For more help, call us." << endl;
+        cin.clear();
+        cin >> colorCount;
+    }
+    if (colorCount > 0 && colorCount <= 5) {
+        cout << "Super! Your quote is being calculated..." << endl;
+    }
+    
+
 
     return 0;
     }
